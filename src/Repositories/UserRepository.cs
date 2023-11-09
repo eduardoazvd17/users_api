@@ -39,8 +39,7 @@ namespace myfirstapi.Repositories
             UserModel? currentUser = _db.Users.Find(id);
             if (currentUser != null)
             {
-                _db.Remove(currentUser);
-                _db.Add(user);
+                _db.Update(user);
                 _db.SaveChanges();
             }
         }
