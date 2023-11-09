@@ -30,7 +30,8 @@ namespace myfirstapi.Repositories
 
         public void Add(UserModel user)
         {
-            _db.Users.Add(user);
+            _db.Add(user);
+            _db.SaveChanges();
         }
 
         public void Update(int id, UserModel user)
@@ -38,8 +39,9 @@ namespace myfirstapi.Repositories
             UserModel? currentUser = _db.Users.Find(id);
             if (currentUser != null)
             {
-                _db.Users.Remove(currentUser);
-                _db.Users.Add(user);
+                _db.Remove(currentUser);
+                _db.Add(user);
+                _db.SaveChanges();
             }
         }
 
@@ -48,7 +50,8 @@ namespace myfirstapi.Repositories
             var user = _db.Users.Find(id);
             if (user != null)
             {
-                _db.Users.Remove(user);
+                _db.Remove(user);
+                _db.SaveChanges();
             }
         }
     }
