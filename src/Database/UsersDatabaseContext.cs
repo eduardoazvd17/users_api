@@ -9,5 +9,7 @@ namespace myfirstapi.src.Database
     public class UsersDatabaseContext : DbContext
     {
         public UsersDatabaseContext(DbContextOptions<UsersDatabaseContext> options) : base(options) { }
+
+        public DbSet<UserModel> Users { get; set; }
     }
 }
