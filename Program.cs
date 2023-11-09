@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<UsersDatabaseContext>(
     options => options.UseSqlServer(configuration.GetConnectionString("UsersApi"))
 );
-builder.Services.AddSingleton<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
