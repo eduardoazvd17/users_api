@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace myfirstapi.src.Database
 {
-    public class UsersDatabaseContext : DbContext
+    public class DatabaseContext : DbContext
     {
-        public UsersDatabaseContext(DbContextOptions<UsersDatabaseContext> options) : base(options) { }
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
 
         public DbSet<UserModel> Users { get; set; }
     }

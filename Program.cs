@@ -10,8 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<UsersDatabaseContext>(
-    options => options.UseSqlServer(configuration.GetConnectionString("UsersApi"))
+builder.Services.AddDbContext<DatabaseContext>(
+    options => options.UseSqlServer(configuration.GetConnectionString("Database"))
 );
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 

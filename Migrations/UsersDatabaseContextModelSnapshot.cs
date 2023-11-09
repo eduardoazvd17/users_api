@@ -9,7 +9,7 @@ using myfirstapi.src.Database;
 
 namespace myfirstapi.Migrations
 {
-    [DbContext(typeof(UsersDatabaseContext))]
+    [DbContext(typeof(DatabaseContext))]
     partial class UsersDatabaseContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

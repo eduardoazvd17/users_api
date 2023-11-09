@@ -10,9 +10,9 @@ namespace myfirstapi.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly UsersDatabaseContext _db;
+        private readonly DatabaseContext _db;
 
-        public UserRepository(UsersDatabaseContext db)
+        public UserRepository(DatabaseContext db)
         {
             _db = db;
         }

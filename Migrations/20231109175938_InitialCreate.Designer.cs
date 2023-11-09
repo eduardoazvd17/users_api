@@ -10,7 +10,7 @@ using myfirstapi.src.Database;
 
 namespace myfirstapi.Migrations
 {
-    [DbContext(typeof(UsersDatabaseContext))]
+    [DbContext(typeof(DatabaseContext))]
     [Migration("20231109175938_InitialCreate")]
     partial class InitialCreate
     {
