@@ -4,44 +4,51 @@ using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Threading.Tasks;
 using myfirstapi.Models;
+using myfirstapi.src.Database;
 
 namespace myfirstapi.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private List<UserModel> _usersTempDb = new List<UserModel>();
+        private readonly UsersDatabaseContext _db;
+
+        public UserRepository(UsersDatabaseContext db)
+        {
+            _db = db;
+        }
 
         public List<UserModel> Get()
         {
-            return _usersTempDb;
+            var result = _db.Users.OrderBy(x => x.Id);
+            return result.ToList();
         }
 
-        public UserModel? Get(int Id)
+        public UserModel? Get(int id)
         {
-            return _usersTempDb.Find(x => x.Id == Id);
+            return _db.Users.Find(id);
         }
 
         public void Add(UserModel user)
         {
-            _usersTempDb.Add(user);
+            _db.Users.Add(user);
         }
 
         public void Update(int id, UserModel user)
         {
-            UserModel? currentUser = _usersTempDb.Find(x => x.Id == id);
+            UserModel? currentUser = _db.Users.Find(id);
             if (currentUser != null)
             {
-                _usersTempDb.Remove(currentUser);
-                _usersTempDb.Add(user);
+                _db.Users.Remove(currentUser);
+                _db.Users.Add(user);
             }
         }
 
-        public void Delete(int Id)
+        public void Delete(int id)
         {
-            var user = _usersTempDb.Find(x => x.Id == Id);
+            var user = _db.Users.Find(id);
             if (user != null)
             {
-                _usersTempDb.Remove(user);
+                _db.Users.Remove(user);
             }
         }
     }

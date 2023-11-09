@@ -10,12 +10,12 @@ namespace myfirstapi.Repositories
     {
         List<UserModel> Get();
 
-        UserModel? Get(int Id);
+        UserModel? Get(int id);
 
         void Add(UserModel user);
 
         void Update(int id, UserModel user);
 
-        void Delete(int Id);
+        void Delete(int id);
     }
 }
