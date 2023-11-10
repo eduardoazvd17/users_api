@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<DatabaseContext>(
-    options => options.UseSqlServer(configuration.GetConnectionString("Database"))
+    options => options.UseMySQL(configuration.GetConnectionString("Database"))
 );
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
